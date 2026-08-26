@@ -1,0 +1,279 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================
+   BASE
+========================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  color: white;
+
+  background: linear-gradient(
+    180deg,
+    #020617 0%,
+    #0f172a 100%
+  );
+}
+
+/* ==========================
+   LAYOUT
+========================== */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+/* ==========================
+   TITULOS
+========================== */
+
+.title {
+  color: #38bdf8;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.card {
+  background: #1e293b;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid #334155;
+}
+
+/* Animación y Hover */
+
+.card,
+.stat-card {
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(14, 165, 233, 0.15);
+}
+
+/* ==========================
+   ESTADISTICAS
+========================== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.stat-card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #334155;
+}
+
+.stat-card h2 {
+  color: #38bdf8;
+  margin: 0;
+  font-size: 3rem;
+}
+
+.stat-card p {
+  margin-top: 10px;
+}
+
+/* ==========================
+   TIMELINE
+========================== */
+
+.timeline {
+  border-left: 4px solid #38bdf8;
+  padding-left: 30px;
+  margin-top: 30px;
+}
+
+.job {
+  margin-bottom: 40px;
+}
+
+/* ==========================
+   DASHBOARD
+========================== */
+
+.chart-container {
+  margin-top: 40px;
+}
+
+.chart-container .card {
+  padding: 25px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  );
+
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.summary-grid h1 {
+  color: #38bdf8;
+}
+
+/* ==========================
+   PROYECTO DESTACADO
+========================== */
+
+.featured-project {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  margin-bottom: 60px;
+}
+
+/* ==========================
+   STACK TECNOLOGICO
+========================== */
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.tech-grid span {
+  background: #1e293b;
+  padding: 12px 20px;
+  border-radius: 12px;
+
+  border: 1px solid #334155;
+
+  transition: all 0.3s ease;
+}
+
+.tech-grid span:hover {
+  background: #0ea5e9;
+  transform: translateY(-3px);
+}
+
+/* ==========================
+   ESPECIALIDADES
+========================== */
+
+.specialities {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+/* ==========================
+   FOTO PERFIL
+========================== */
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 4px solid #38bdf8;
+
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+/* ==========================
+   ANIMACIONES
+========================== */
+
+.card,
+.stat-card {
+  animation: fadeIn .8s ease;
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 10px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .stat-card h2 {
+    font-size: 2.5rem;
+  }
+
+}

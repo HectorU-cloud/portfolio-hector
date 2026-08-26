@@ -1,0 +1,80 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const skills = [
+  { name: "Python", level: 90 },
+  { name: "FastAPI", level: 85 },
+  { name: "React", level: 80 },
+  { name: "PostgreSQL", level: 85 },
+  { name: "Docker", level: 75 },
+  { name: "Redes Cisco", level: 90 }
+];
+---
+
+<MainLayout title="Habilidades">
+
+<Navbar />
+
+<div class="container">
+
+  <h1 class="title">
+    Habilidades
+  </h1>
+
+  {
+    skills.map(skill => (
+
+      <div class="skill">
+
+        <div class="header">
+
+          <span>{skill.name}</span>
+
+          <span>{skill.level}%</span>
+
+        </div>
+
+        <div class="bar">
+
+          <div
+            class="fill"
+            style={`width:${skill.level}%`}
+          ></div>
+
+        </div>
+
+      </div>
+
+    ))
+  }
+
+</div>
+
+</MainLayout>
+
+<style>
+.skill{
+ margin-bottom:20px;
+}
+
+.header{
+ display:flex;
+ justify-content:space-between;
+ margin-bottom:5px;
+}
+
+.bar{
+ background:#1e293b;
+ height:12px;
+ border-radius:10px;
+ overflow:hidden;
+}
+
+.fill{
+ background:#0ea5e9;
+ height:100%;
+}
+</style>
+<Footer />

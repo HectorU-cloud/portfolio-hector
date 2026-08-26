@@ -1,11 +1,254 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import ProfileCard from '../components/ProfileCard.jsx';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title="Héctor Urgiles">
+
+  <Navbar />
+
+  <!-- HERO -->
+
+  <section class="hero container">
+
+    <div class="hero-content">
+
+      <div>
+
+        <span class="badge">
+          Ingeniero de Aseguramiento Corporativo
+        </span>
+
+        <h1>
+          Héctor Urgiles
+        </h1>
+
+        <p>
+          Profesional enfocado en infraestructura TI,
+          gestión de activos tecnológicos, redes,
+          automatización y desarrollo de soluciones
+          con Python, React y FastAPI.
+        </p>
+
+        <div class="buttons">
+
+          <a href="/projects" class="btn-primary">
+            Ver Proyectos
+          </a>
+
+          <a href="/dashboard" class="btn-secondary">
+            Dashboard TI
+          </a>
+          <a href="/cv-hector-urgiles.pdf" class="btn-primary" target="_blank">
+            Descargar CV
+          </a>
+
+        </div>
+
+      </div>
+
+      <ProfileCard client:load />
+
+    </div>
+
+  </section>
+
+  <!-- ESTADÍSTICAS -->
+
+  <section class="stats container">
+
+    <div class="stat-card">
+      <h2>10+</h2>
+      <p>Años de Experiencia</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>1000+</h2>
+      <p>Activos Gestionados</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>100+</h2>
+      <p>Switches Administrados</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>20+</h2>
+      <p>Proyectos Tecnológicos</p>
+    </div>
+
+  </section>
+
+  <!-- STACK TECNOLÓGICO -->
+
+  <section class="container">
+
+    <h2 class="title">
+      Stack Tecnológico
+    </h2>
+
+    <div class="tech-grid">
+
+      <span>React</span>
+      <span>Astro</span>
+      <span>Python</span>
+      <span>FastAPI</span>
+      <span>Node.js</span>
+      <span>Docker</span>
+      <span>PostgreSQL</span>
+      <span>Cisco</span>
+      <span>Dell EMC</span>
+
+    </div>
+
+  </section>
+
+  <section class="container">
+
+  <h2 class="title">
+    Proyecto Destacado
+  </h2>
+
+  <div class="featured-project">
+
+    <h3>
+      Corporate Infrastructure Dashboard
+    </h3>
+
+    <p>
+      Plataforma para gestión de activos TI,
+      infraestructura Dell,
+      switches corporativos,
+      indicadores y monitoreo.
+    </p>
+
+    <div class="tech-grid">
+
+      <span>Astro</span>
+      <span>React</span>
+      <span>FastAPI</span>
+      <span>PostgreSQL</span>
+      <span>Docker</span>
+
+    </div>
+
+  </div>
+
+  </section>
+
+  <Footer />
+
+</MainLayout>
+
+<style>
+
+.hero{
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.badge {
+  background: #0ea5e9;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: .9rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin: 20px 0;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #cbd5e1;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-primary {
+  background: #0ea5e9;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+.btn-secondary {
+  border: 1px solid #0ea5e9;
+  color: #0ea5e9;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+.stat-card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.stat-card h2 {
+  color: #38bdf8;
+  margin: 0;
+  font-size: 3rem;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.tech-grid span {
+  background: #1e293b;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  transition: .3s;
+}
+
+.tech-grid span:hover {
+  background: #0ea5e9;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+}
+
+</style>
