@@ -10,6 +10,7 @@ import Footer from '../components/Footer.astro';
 
   <div class="container">
 
+    <span class="eyebrow">Trayectoria</span>
     <h1 class="title">
       Experiencia Profesional
     </h1>
@@ -37,7 +38,7 @@ import Footer from '../components/Footer.astro';
           <ul>
             <li>Administración de activos tecnológicos</li>
             <li>Control de infraestructura Dell</li>
-            <li>Gestión de switches corporativos</li>
+            <li>Gestión de switches corporativos (Cisco / Fortinet)</li>
             <li>Automatización con Python</li>
           </ul>
 
@@ -63,11 +64,11 @@ import Footer from '../components/Footer.astro';
 .timeline::before{
   content:'';
   position:absolute;
-  left:12px;
+  left:10px;
   top:0;
-  width:3px;
+  width:2px;
   height:100%;
-  background:#0ea5e9;
+  background:var(--border);
 }
 
 .timeline-item{
@@ -77,24 +78,46 @@ import Footer from '../components/Footer.astro';
 }
 
 .timeline-dot{
-  width:25px;
-  height:25px;
-  background:#0ea5e9;
+  width:20px;
+  height:20px;
+  background: var(--bg);
+  border: 2px solid var(--accent);
   border-radius:50%;
   position:absolute;
   left:0;
+  top: 4px;
 }
 
 .timeline-content{
-  background:#1e293b;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   padding:25px;
-  border-radius:16px;
+  border-radius: var(--radius);
+}
+
+.timeline-content ul {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-content li {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+
+.timeline-content li::before {
+  content: "— ";
+  color: var(--text-faint);
 }
 
 .date{
-  color:#38bdf8;
-  font-weight:bold;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin: 6px 0 12px;
 }
 
 </style>
-

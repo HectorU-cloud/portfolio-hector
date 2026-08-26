@@ -6,19 +6,22 @@ import ProjectCard from '../components/ProjectCard.jsx';
 
 const projects = [
 {
-title:"Corporate Infrastructure Dashboard",
-description:"Dashboard para gestión de activos TI, switches, infraestructura Dell y KPIs.",
-technologies:["Astro","React","FastAPI","PostgreSQL"]
+title: "Corporate Infrastructure Dashboard",
+description: "Plataforma interna para dar seguimiento a activos TI, switches corporativos e infraestructura Dell: inventario, disponibilidad e indicadores clave centralizados.",
+technologies: ["Astro","React","FastAPI","PostgreSQL"],
+status: "produccion",
 },
 {
-title:"Sistema de Inventario Tecnológico",
-description:"Control completo de activos y trazabilidad.",
-technologies:["Python","FastAPI","SQL"]
+title: "Auditoría de cuentas de servicio en red",
+description: "Script en Python con Netmiko que audita cerca de 1000 dispositivos de red para verificar la existencia y los permisos de escritura de una cuenta de servicio específica. Resuelve timeouts de autodetección SSH y bloqueos de autenticación en sistemas AAA/TACACS+ al paralelizar, y genera un CSV con columna de motivo de falla para diagnóstico rápido.",
+technologies: ["Python","Netmiko","SSH","CSV"],
+status: "produccion",
 },
 {
-title:"Monitoreo de Redes",
-description:"Visualización y monitoreo de infraestructura empresarial.",
-technologies:["React","Node.js","Docker"]
+title: "Bot de sincronización de inventario por correo",
+description: "Automatización que lee notificaciones de NOC (migración o retiro de equipos) desde el correo corporativo vía Microsoft Graph API y actualiza o elimina los registros correspondientes en las tablas de inventario de la base de datos, sin intervención manual.",
+technologies: ["Python","Microsoft Graph API","SQL"],
+status: "desarrollo",
 }
 ];
 ---
@@ -29,6 +32,7 @@ technologies:["React","Node.js","Docker"]
 
 <div class="container">
 
+<span class="eyebrow">Trabajo</span>
 <h1 class="title">
 Proyectos Destacados
 </h1>
@@ -43,6 +47,7 @@ client:load
 title={project.title}
 description={project.description}
 technologies={project.technologies}
+status={project.status}
 />
 
 ))
@@ -59,7 +64,7 @@ technologies={project.technologies}
 <style>
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
 gap:20px;
 }
 </style>

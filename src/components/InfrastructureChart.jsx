@@ -32,10 +32,27 @@ export default function InfrastructureChart() {
       {
         label: "Inventario",
         data: [650, 300, 98, 42, 680],
-        backgroundColor: "#0ea5e9"
+        backgroundColor: "#f2a93c",
+        borderRadius: 4,
       }
     ]
   };
 
-  return <Bar data={data} />;
+  const options = {
+    plugins: {
+      legend: { labels: { color: "#929aa6", font: { family: "'IBM Plex Mono', monospace" } } },
+    },
+    scales: {
+      x: {
+        ticks: { color: "#929aa6", font: { family: "'IBM Plex Mono', monospace" } },
+        grid: { color: "#2a3038" },
+      },
+      y: {
+        ticks: { color: "#929aa6", font: { family: "'IBM Plex Mono', monospace" } },
+        grid: { color: "#2a3038" },
+      },
+    },
+  };
+
+  return <Bar data={data} options={options} />;
 }

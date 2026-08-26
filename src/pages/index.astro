@@ -5,7 +5,7 @@ import ProfileCard from '../components/ProfileCard.jsx';
 import Footer from '../components/Footer.astro';
 ---
 
-<MainLayout title="Héctor Urgiles">
+<MainLayout title="Inicio">
 
   <Navbar />
 
@@ -26,10 +26,10 @@ import Footer from '../components/Footer.astro';
         </h1>
 
         <p>
-          Profesional enfocado en infraestructura TI,
-          gestión de activos tecnológicos, redes,
-          automatización y desarrollo de soluciones
-          con Python, React y FastAPI.
+          Administro y aseguro infraestructura de red corporativa a
+          gran escala: dispositivos Cisco y Fortinet, inventario de
+          activos TI e infraestructura Dell. Automatizo procesos de
+          auditoría y trazabilidad con Python, FastAPI y React.
         </p>
 
         <div class="buttons">
@@ -41,7 +41,7 @@ import Footer from '../components/Footer.astro';
           <a href="/dashboard" class="btn-secondary">
             Dashboard TI
           </a>
-          <a href="/cv-hector-urgiles.pdf" class="btn-primary" target="_blank">
+          <a href="/cv-hector-urgiles.pdf" class="btn-secondary" target="_blank">
             Descargar CV
           </a>
 
@@ -60,23 +60,27 @@ import Footer from '../components/Footer.astro';
   <section class="stats container">
 
     <div class="stat-card">
+      <span class="port-label">PORT 01</span>
       <h2>10+</h2>
-      <p>Años de Experiencia</p>
+      <p>Años de experiencia</p>
     </div>
 
     <div class="stat-card">
+      <span class="port-label">PORT 02</span>
       <h2>1000+</h2>
-      <p>Activos Gestionados</p>
+      <p>Activos gestionados</p>
     </div>
 
     <div class="stat-card">
+      <span class="port-label">PORT 03</span>
       <h2>100+</h2>
-      <p>Switches Administrados</p>
+      <p>Switches administrados</p>
     </div>
 
     <div class="stat-card">
+      <span class="port-label">PORT 04</span>
       <h2>20+</h2>
-      <p>Proyectos Tecnológicos</p>
+      <p>Proyectos tecnológicos</p>
     </div>
 
   </section>
@@ -85,20 +89,22 @@ import Footer from '../components/Footer.astro';
 
   <section class="container">
 
+    <span class="eyebrow">Stack</span>
     <h2 class="title">
-      Stack Tecnológico
+      Herramientas que uso
     </h2>
 
     <div class="tech-grid">
 
+      <span>Python</span>
       <span>React</span>
       <span>Astro</span>
-      <span>Python</span>
       <span>FastAPI</span>
       <span>Node.js</span>
       <span>Docker</span>
       <span>PostgreSQL</span>
       <span>Cisco</span>
+      <span>Fortinet</span>
       <span>Dell EMC</span>
 
     </div>
@@ -107,34 +113,36 @@ import Footer from '../components/Footer.astro';
 
   <section class="container">
 
-  <h2 class="title">
-    Proyecto Destacado
-  </h2>
-
-  <div class="featured-project">
-
-    <h3>
+    <span class="eyebrow">Proyecto destacado</span>
+    <h2 class="title">
       Corporate Infrastructure Dashboard
-    </h3>
+    </h2>
 
-    <p>
-      Plataforma para gestión de activos TI,
-      infraestructura Dell,
-      switches corporativos,
-      indicadores y monitoreo.
-    </p>
+    <div class="featured-project">
 
-    <div class="tech-grid">
+      <h3>
+        Visibilidad centralizada de la flota TI
+      </h3>
 
-      <span>Astro</span>
-      <span>React</span>
-      <span>FastAPI</span>
-      <span>PostgreSQL</span>
-      <span>Docker</span>
+      <p>
+        Plataforma interna para dar seguimiento a activos TI,
+        infraestructura Dell y switches corporativos: inventario,
+        disponibilidad e indicadores clave en un solo lugar.
+      </p>
+
+      <div class="tech-grid">
+
+        <span>Astro</span>
+        <span>React</span>
+        <span>FastAPI</span>
+        <span>PostgreSQL</span>
+        <span>Docker</span>
+
+      </div>
+
+      <a href="/dashboard" class="btn-secondary">Ver dashboard →</a>
 
     </div>
-
-  </div>
 
   </section>
 
@@ -145,108 +153,61 @@ import Footer from '../components/Footer.astro';
 <style>
 
 .hero{
-  min-height: 70vh;
+  min-height: 68vh;
   display: flex;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
   align-items: center;
 }
 
 .badge {
-  background: #0ea5e9;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: .9rem;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 7px 16px;
+  border-radius: 6px;
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 3.6rem;
   margin: 20px 0;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 46ch;
 }
 
 .buttons {
   display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.btn-primary {
-  background: #0ea5e9;
-  color: white;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-}
-
-.btn-secondary {
-  border: 1px solid #0ea5e9;
-  color: #0ea5e9;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-}
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-  margin-top: 50px;
-  margin-bottom: 60px;
-}
-
-.stat-card {
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 16px;
-  text-align: center;
-}
-
-.stat-card h2 {
-  color: #38bdf8;
-  margin: 0;
-  font-size: 3rem;
-}
-
-.tech-grid {
-  display: flex;
+  gap: 14px;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 20px;
-  margin-bottom: 60px;
+  margin-top: 32px;
 }
 
-.tech-grid span {
-  background: #1e293b;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border: 1px solid #334155;
-  transition: .3s;
+.featured-project .btn-secondary {
+  margin-top: 22px;
 }
 
-.tech-grid span:hover {
-  background: #0ea5e9;
-  transform: translateY(-3px);
-}
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
   .hero-content {
     grid-template-columns: 1fr;
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
   }
 
 }

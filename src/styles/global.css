@@ -1,4 +1,41 @@
 /* ==========================
+   TOKENS
+   Paleta inspirada en un panel de patcheo /
+   NOC: grafito cálido + ámbar de actividad
+   Ethernet + verde de enlace activo.
+========================== */
+
+:root {
+  --bg: #14171c;
+  --bg-elevated: #1b2027;
+  --bg-elevated-2: #202730;
+  --border: #2a3038;
+  --border-soft: rgba(255, 255, 255, 0.06);
+
+  --text: #e9ebee;
+  --text-muted: #929aa6;
+  --text-faint: #5b636f;
+
+  --accent: #f2a93c;
+  --accent-soft: rgba(242, 169, 60, 0.12);
+  --accent-contrast: #14171c;
+
+  --status-on: #5fd68a;
+  --status-on-soft: rgba(95, 214, 138, 0.12);
+  --status-warn: #f2a93c;
+  --status-crit: #ef6461;
+  --status-crit-soft: rgba(239, 100, 97, 0.12);
+
+  --font-display: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --font-body: "IBM Plex Sans", Inter, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 18px;
+}
+
+/* ==========================
    RESET
 ========================== */
 
@@ -17,14 +54,38 @@ html {
 }
 
 body {
-  font-family: Inter, Arial, sans-serif;
-  color: white;
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--border-soft) 1px, transparent 1px);
+  background-size: 26px 26px;
+  min-height: 100vh;
+}
 
-  background: linear-gradient(
-    180deg,
-    #020617 0%,
-    #0f172a 100%
-  );
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
 /* ==========================
@@ -42,11 +103,32 @@ body {
 }
 
 /* ==========================
+   EYEBROW (etiqueta tipo comentario de código)
+========================== */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+
+.eyebrow::before {
+  content: "//";
+  color: var(--text-faint);
+}
+
+/* ==========================
    TITULOS
 ========================== */
 
 .title {
-  color: #38bdf8;
+  color: var(--text);
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -56,54 +138,102 @@ body {
 ========================== */
 
 .card {
-  background: #1e293b;
+  background: var(--bg-elevated);
   padding: 1.5rem;
-  border-radius: 16px;
-  border: 1px solid #334155;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
 }
-
-/* Animación y Hover */
 
 .card,
 .stat-card {
-  transition: all 0.3s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
 .card:hover,
 .stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(14, 165, 233, 0.15);
+  border-color: var(--accent);
+  transform: translateY(-4px);
 }
 
 /* ==========================
-   ESTADISTICAS
+   BOTONES
+========================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent);
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ==========================
+   ESTADISTICAS / "PORTS"
 ========================== */
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
 
   margin-top: 50px;
   margin-bottom: 60px;
 }
 
 .stat-card {
-  background: #1e293b;
-  padding: 30px;
-  border-radius: 16px;
-  text-align: center;
-  border: 1px solid #334155;
+  position: relative;
+  background: var(--bg-elevated);
+  padding: 26px 24px 22px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+}
+
+.stat-card .port-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 10px;
 }
 
 .stat-card h2 {
-  color: #38bdf8;
+  font-family: var(--font-mono);
+  color: var(--text);
   margin: 0;
-  font-size: 3rem;
+  font-size: 2.4rem;
 }
 
 .stat-card p {
   margin-top: 10px;
+  color: var(--text-muted);
 }
 
 /* ==========================
@@ -111,7 +241,7 @@ body {
 ========================== */
 
 .timeline {
-  border-left: 4px solid #38bdf8;
+  border-left: 2px solid var(--border);
   padding-left: 30px;
   margin-top: 30px;
 }
@@ -136,15 +266,16 @@ body {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(250px, 1fr)
+    minmax(220px, 1fr)
   );
 
-  gap: 20px;
+  gap: 16px;
   margin-top: 30px;
 }
 
 .summary-grid h1 {
-  color: #38bdf8;
+  font-family: var(--font-mono);
+  color: var(--text);
 }
 
 /* ==========================
@@ -152,39 +283,44 @@ body {
 ========================== */
 
 .featured-project {
-  background: #1e293b;
+  background: var(--bg-elevated);
   padding: 30px;
-  border-radius: 16px;
-  border: 1px solid #334155;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
   margin-bottom: 60px;
 }
 
 /* ==========================
-   STACK TECNOLOGICO
+   STACK TECNOLOGICO / CONECTORES
 ========================== */
 
 .tech-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 
   margin-top: 20px;
   margin-bottom: 60px;
 }
 
 .tech-grid span {
-  background: #1e293b;
-  padding: 12px 20px;
-  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
 
-  border: 1px solid #334155;
+  border: 1px solid var(--border);
 
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .tech-grid span:hover {
-  background: #0ea5e9;
-  transform: translateY(-3px);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* ==========================
@@ -194,9 +330,9 @@ body {
 .specialities {
   display: grid;
   grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
+    repeat(auto-fit, minmax(240px, 1fr));
 
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 60px;
 }
 
@@ -212,7 +348,7 @@ body {
 
   border-radius: 50%;
 
-  border: 4px solid #38bdf8;
+  border: 2px solid var(--accent);
 
   display: block;
   margin: 0 auto 20px auto;
@@ -224,14 +360,14 @@ body {
 
 .card,
 .stat-card {
-  animation: fadeIn .8s ease;
+  animation: fadeIn 0.6s ease;
 }
 
 @keyframes fadeIn {
 
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(16px);
   }
 
   to {
@@ -239,6 +375,17 @@ body {
     transform: translateY(0);
   }
 
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 var(--status-on-soft);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 4px transparent;
+  }
 }
 
 /* ==========================
@@ -250,12 +397,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f172a;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #38bdf8;
+  background: var(--border);
   border-radius: 10px;
+}
+
+/* ==========================
+   FOCUS VISIBLE (accesibilidad)
+========================== */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 /* ==========================
@@ -265,15 +422,15 @@ body {
 @media (max-width: 768px) {
 
   .container {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 
   .title {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   .stat-card h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
 }
