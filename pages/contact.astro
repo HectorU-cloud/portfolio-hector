@@ -1,0 +1,75 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const channels = [
+  { label: "Email", value: "yeiden1481@gmail.com", href: "mailto:yeiden1481@gmail.com" },
+  { label: "LinkedIn", value: "linkedin.com/in/hector", href: "https://linkedin.com/in/hector" },
+  { label: "GitHub", value: "github.com/HectorU-cloud", href: "https://github.com/HectorU-cloud" },
+];
+---
+
+<MainLayout title="Contacto">
+
+<Navbar />
+
+<div class="container">
+
+<span class="eyebrow">Hablemos</span>
+<h1 class="title">
+Contacto
+</h1>
+
+<p class="lead">
+¿Buscas apoyo en infraestructura de red, automatización o gestión de
+activos TI? Escríbeme por cualquiera de estos canales.
+</p>
+
+<div class="channels">
+  {channels.map(ch => (
+    <a class="card channel-card" href={ch.href} target="_blank" rel="noreferrer">
+      <span class="channel-label">{ch.label}</span>
+      <span class="channel-value">{ch.value}</span>
+    </a>
+  ))}
+</div>
+
+</div>
+<Footer />
+</MainLayout>
+
+<style>
+  .lead {
+    color: var(--text-muted);
+    max-width: 55ch;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .channels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .channel-card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .channel-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .channel-value {
+    font-weight: 500;
+    word-break: break-word;
+  }
+</style>

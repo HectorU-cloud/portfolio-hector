@@ -1,0 +1,128 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import KpiCard from '../components/KpiCard.jsx';
+import Footer from '../components/Footer.astro';
+import InfrastructureChart from '../components/InfrastructureChart.jsx';
+---
+
+<MainLayout title="Dashboard TI">
+
+  <Navbar />
+
+  <div class="container">
+
+    <span class="eyebrow">Operación</span>
+    <h1 class="title">
+      Dashboard de Infraestructura TI
+    </h1>
+
+    <div class="grid">
+
+      <KpiCard
+        client:load
+        title="Activos TI"
+        value="1250"
+        color="#f2a93c"
+      />
+
+      <KpiCard
+        client:load
+        title="Switches"
+        value="98"
+        color="#f2a93c"
+      />
+
+      <KpiCard
+        client:load
+        title="Servidores"
+        value="42"
+        color="#f2a93c"
+      />
+
+      <KpiCard
+        client:load
+        title="Equipos Dell"
+        value="680"
+        color="#f2a93c"
+      />
+
+    </div>
+
+    <div class="chart-container">
+
+      <div class="card">
+
+        <h2>
+          Inventario por Categoría
+        </h2>
+
+        <InfrastructureChart client:load />
+
+      </div>
+
+    </div>
+
+    <!-- NUEVOS KPIs -->
+
+    <div class="summary-grid">
+
+      <div class="card">
+        <h3>Disponibilidad</h3>
+        <h1 style="color: var(--status-on)">99.95%</h1>
+      </div>
+
+      <div class="card">
+        <h3>Incidentes Mensuales</h3>
+        <h1 style="color: var(--status-warn)">7</h1>
+      </div>
+
+      <div class="card">
+        <h3>Activos Críticos</h3>
+        <h1>245</h1>
+      </div>
+
+    </div>
+    
+
+  </div>
+
+  <Footer />
+
+</MainLayout>
+
+<style>
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;
+}
+
+.chart-container{
+  margin-top:40px;
+}
+
+.summary-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:16px;
+  margin-top:30px;
+}
+
+.summary-grid h3 {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.summary-grid h1{
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+</style>

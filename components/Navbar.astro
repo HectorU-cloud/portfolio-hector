@@ -1,0 +1,166 @@
+---
+---
+
+<div class="topbar">
+  <nav class="navbar">
+    <a href="/" class="logo">HU<span>.</span></a>
+
+    <div class="menu">
+      <a href="/">Inicio</a>
+      <a href="/about">Sobre Mí</a>
+      <a href="/experience">Experiencia</a>
+      <a href="/projects">Proyectos</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/skills">Habilidades</a>
+      <a href="/certifications">Certificaciones</a>
+      <a href="/contact">Contacto</a>
+    </div>
+  </nav>
+
+  <div class="status-strip">
+    <span class="dot" aria-hidden="true"></span>
+    <span class="status-text">
+      Aseguramiento corporativo · 1000+ dispositivos monitoreados
+    </span>
+  </div>
+</div>
+
+<style>
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(20, 23, 28, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 16px 30px 14px;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    color: var(--text);
+    font-size: 1.4rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 26px;
+    flex-wrap: wrap;
+  }
+
+  .menu a {
+    position: relative;
+
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.92rem;
+
+    white-space: nowrap;
+
+    padding: 8px 0;
+
+    transition: color 0.2s ease;
+  }
+
+  .menu a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: width 0.2s ease;
+  }
+
+  .menu a:hover {
+    color: var(--text);
+  }
+
+  .menu a:hover::after {
+    width: 100%;
+  }
+
+  .status-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    padding: 7px 20px;
+
+    background: var(--bg);
+    border-top: 1px solid var(--border-soft);
+
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--status-on);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @media (max-width: 1000px) {
+    .navbar {
+      gap: 18px;
+      padding: 14px 20px 12px;
+    }
+
+    .menu {
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .menu {
+      gap: 10px 16px;
+      justify-content: center;
+    }
+
+    .menu a {
+      font-size: 0.85rem;
+    }
+
+    .status-strip .status-text {
+      text-align: center;
+    }
+  }
+</style>

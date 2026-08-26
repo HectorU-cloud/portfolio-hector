@@ -1,0 +1,123 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout title="Experiencia Profesional">
+
+  <Navbar />
+
+  <div class="container">
+
+    <span class="eyebrow">Trayectoria</span>
+    <h1 class="title">
+      Experiencia Profesional
+    </h1>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-content">
+
+          <h2>
+            Ingeniero de Aseguramiento Corporativo
+          </h2>
+
+          <span class="date">
+            Actualidad
+          </span>
+
+          <p>
+            Gestión de infraestructura tecnológica,
+            inventarios corporativos y activos TI.
+          </p>
+
+          <ul>
+            <li>Administración de activos tecnológicos</li>
+            <li>Control de infraestructura Dell</li>
+            <li>Gestión de switches corporativos (Cisco / Fortinet)</li>
+            <li>Automatización con Python</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <Footer />
+
+</MainLayout>
+
+<style>
+
+.timeline{
+  position:relative;
+  margin-top:40px;
+}
+
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:10px;
+  top:0;
+  width:2px;
+  height:100%;
+  background:var(--border);
+}
+
+.timeline-item{
+  position:relative;
+  padding-left:50px;
+  margin-bottom:40px;
+}
+
+.timeline-dot{
+  width:20px;
+  height:20px;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius:50%;
+  position:absolute;
+  left:0;
+  top: 4px;
+}
+
+.timeline-content{
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding:25px;
+  border-radius: var(--radius);
+}
+
+.timeline-content ul {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-content li {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+
+.timeline-content li::before {
+  content: "— ";
+  color: var(--text-faint);
+}
+
+.date{
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin: 6px 0 12px;
+}
+
+</style>
